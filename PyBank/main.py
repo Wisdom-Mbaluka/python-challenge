@@ -11,6 +11,9 @@ greatest_increase = ["",0]
 greatest_decrease = ["",999999999999]
 earnings_total = 0
 
+# Create the "Analysis" directory if it doesn't exist
+os.makedirs(os.path.dirname(txt_export), exist_ok=True)
+
 with open(csv_path) as info:
     reader = csv.reader(info)
 
@@ -55,3 +58,5 @@ output = (
     f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]})\n")
 
 print(output)
+with open(txt_export, "w") as txt_file:
+    txt_file.write(output)
